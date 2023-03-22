@@ -13,6 +13,11 @@ public class CompteMenu extends JFrame implements ActionListener {
     private JTextField searchBar;
     private JButton searchButton, connectButton, s_incrire_Button, homeButton;
     
+    //panel s'indentifier 
+    private JLabel nomLabel, prenomLabel, hobbitLabel, anniversaireLabel, ageLabel, /*JLabel adresseLabel, */numTelLabel, emailLabel, sexeLabel, attiranceLabel, agePrefLabel, presentationLabel; 
+    private JLabel nom, prenom, hobbit, anniversaire, age, /*adresse,*/ numTel, email, sexe, attirance, ageMinPref, ageMaxPref,presentation; 
+
+    
     public CompteMenu() {
         setTitle("Menu Compte");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +51,10 @@ public class CompteMenu extends JFrame implements ActionListener {
         topPanel.add(searchButton, BorderLayout.EAST);
         getContentPane().add(topPanel, BorderLayout.NORTH);
         
+        //Ajouter la fnetre s'idenfier par défaut  dans la fenêtre
+        JPanel Panelprincipal = new JPanel(new BorderLayout());
+        
+        
         setSize(500, 300);
         setVisible(true);
     }
@@ -63,31 +72,7 @@ public class CompteMenu extends JFrame implements ActionListener {
         }
         else if (e.getSource()== s_incrire_Button) {
         	
-            JLabel nomLabel;
-			JLabel prenomLabel;
-			JLabel hobbitLabel;
-			JLabel anniversaireLabel;
-			JLabel ageLabel;
-			//JLabel adresseLabel;
-			JLabel numTelLabel;
-			JLabel emailLabel;
-			JLabel sexeLabel;
-			JLabel attiranceLabel;
-			JLabel agePrefLabel;
-			JLabel presentationLabel;
-            JLabel nom;
-			JLabel prenom;
-			JLabel hobbit;
-			JLabel anniversaire;
-			JLabel age;
-			JLabel adresse;
-			JLabel numTel;
-			JLabel email;
-			JLabel sexe;
-			JLabel attirance;
-			JLabel ageMinPref;
-			JLabel ageMaxPref;
-			JLabel presentation;
+
             
             Compte compte = new Compte();
                 nomLabel = new JLabel("Nom: ");
