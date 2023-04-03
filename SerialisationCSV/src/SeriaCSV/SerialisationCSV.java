@@ -1,5 +1,9 @@
 package SeriaCSV;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 public class SerialisationCSV {
@@ -20,7 +24,7 @@ public class SerialisationCSV {
     private String rueNumero;
     
     private int codePostal;
-    private String codePostal;
+    private String CodePostal;
     
     private String region;
     private String pays;
@@ -39,23 +43,98 @@ public class SerialisationCSV {
 
 	public SerialisationCSV() {
 		
-		//Constructeur à finir
-		SerialisationCSV(String name,String sirname,String Hobbys,String identifImage,Date BirthDayDate,int Age,String Ville,String RueNum,int CodePost,String Region,String Country,String NumeroDeTel,String Email,String Sexe,String Attirance,int AgeMin,int AgeMax,string Commentary)
+		//Constructeur avec des ints
+		SerialisationCSV(String name,String sirname,String Hobbys,String identifImage,Date BirthDayDate,int AgePers,String Ville,String RueNum,int CodePost,String Region,String Country,String NumeroDeTel,String Email,String Sexe,String Attirance,int AgeMin,int AgeMax,string Commentary)
 		{
 		 nom=name;
 		 prenom=sirname;
 		 hobbit=Hobbys;
 		 idImage=identifImage;
-		 //...
+		
+  
+		  anniversaire=BirthDayDate;
+		  
+		  String DateF=anniversaire.toString();
+		//--> jour sem ? Jour=DateF.substring(0, Math.min(DateF.length(), 3));
+			Mois=DateF.substring(4, Math.min(DateF.length(), 7));
+			Jour=DateF.substring(8, Math.min(DateF.length(), 10));
+			//String Heures=DateF.substring(11, Math.min(DateF.length(), 19));
+			 Annee=DateF.substring(24, Math.min(DateF.length(), 28));
+		    
+		    private int age = AgePers;
+		    
+		    ville=Ville;
+		    rueNumero=RueNum;
+		    
+		    codePostal=CodePost;
+		    CodePostal= Integer.toString(codePostal);
+		    
+		     region = Region;
+		     pays = Country;
+		     numTel=NumeroDeTel;
+		    email=Email;
+		    sexe = Sexe;
+		     attiranceSexuelle = Attirance;
+		    
+		  ageMinPref = AgeMin;
+		 AgeMinimumPreference = Integer.toString(ageMinPref);
+
+		   ageMaxPref = AgeMax;
+		AgeMaximumPreference = Integer.toString(ageMaxPref)
+
+		    
+		    presentationCommentaire = Commentary;	
+		 
 		}
 		
 		//Redef Constructeur
 		// TODO Auto-generated constructor stub
 		
-		public void AddToCsvVirgule()
+		
+		public void AddToCsvVirgule() throws FileNotFoundException, IOException
 		{
+			//Obtention du chemin actuel et mise en forme
+			String CheminG=System.getProperty("user.dir");
+			String old ="\\";
+			String mnew="/";
+			CheminG=CheminG.replace(old,mnew);
+			//Création du fichier de donnés txt dans le chemin actuel
+			File fichier = new File(CheminG,"Data.csv");
+			//Ecriture des données selon le format correspondant
 			
+			PrintWriter writer = new PrintWriter(CheminG+"/Data.csv", "UTF-8");
+			writer.println("Hello world !");
+			
+			
+			//writer.println("Test "+Sujet);
+			//Recuperation et ecriture de la date selon le format correspondant
+			//java.util.Date date = new java.util.Date(); 
+			//String DateF=date.toString();
+			//String Jour=DateF.substring(0, Math.min(DateF.length(), 3));
+			//String Mois=DateF.substring(4, Math.min(DateF.length(), 7));
+			//String numJour=DateF.substring(8, Math.min(DateF.length(), 10));
+			//String Heures=DateF.substring(11, Math.min(DateF.length(), 19));
+			//String Annee=DateF.substring(24, Math.min(DateF.length(), 28));
+			//writer.println("Date: "+Jour+", "+numJour+" "+Mois+" "+Annee+" "+Heures);
+
+			//	writer.println("");
+			//writer.println(Contenu);
+			writer.close();
+
 		}
+
+		public String ObtenirChemin()
+		{
+			//Renvoie le chemin dans lequel se situe le fichier de données
+			String CheminG=System.getProperty("user.dir");
+			String old ="\\";
+			String mnew="/";
+			CheminG=CheminG.replace(old,mnew);
+			String Chemin = CheminG+"/Data.csv";
+			return Chemin;
+		}
+		
+		
 		
 		public void AddToCsvPointVirgule()
 		{
