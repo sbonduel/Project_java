@@ -1,10 +1,10 @@
-//package Test;
-package SeriaCSV;
+package Test;
+//package SeriaCSV;
 //Type date à local date à changer
-//Pb réécriture fichier
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -105,11 +105,23 @@ public class SerialisationCSV {
 			CheminG=CheminG.replace(old,mnew);
 			//Création du fichier de donnés txt dans le chemin actuel
 			File fichier = new File(CheminG,"Data.csv");
-			//Ecriture des données selon le format correspondant
 			
+			//Si le fichier existe déja
+			if(fichier.exists() && !fichier.isDirectory()) { 
+			    // do something
+				FileWriter fw = new FileWriter(CheminG+"/Data.csv",true);
+				//System.out.println("Fichier deja existant");
+				fw.write(nom+","+prenom+","+hobbit+","+idImage+","+Jour+"/"+Mois+"/"+Annee+","+Age+","+ville+","+rueNumero+","+CodePostal+","+region+","+pays+","+numTel+","+email+","+sexe+","+attiranceSexuelle+","+AgeMinimumPreference+","+AgeMaximumPreference+","+presentationCommentaire+",");
+				fw.write("\r\n");
+				fw.close();
+			}
+			else
+			{	
+				//Ecriture des données selon le format correspondant + création fichier
 			PrintWriter writer = new PrintWriter(CheminG+"/Data.csv", "UTF-8");
 			writer.println(nom+","+prenom+","+hobbit+","+idImage+","+Jour+"/"+Mois+"/"+Annee+","+Age+","+ville+","+rueNumero+","+CodePostal+","+region+","+pays+","+numTel+","+email+","+sexe+","+attiranceSexuelle+","+AgeMinimumPreference+","+AgeMaximumPreference+","+presentationCommentaire+",");
-			
+			writer.close();
+			}
 			
 			//writer.println("Test "+Sujet);
 			//Recuperation et ecriture de la date selon le format correspondant
@@ -124,7 +136,7 @@ public class SerialisationCSV {
 
 			//	writer.println("");
 			//writer.println(Contenu);
-			writer.close();
+			
 
 		}
 
@@ -141,13 +153,25 @@ public class SerialisationCSV {
 		
 		
 		
-		public void AddToCsvPointVirgule() throws FileNotFoundException, UnsupportedEncodingException
+		public void AddToCsvPointVirgule() throws IOException
 		{
 			String CheminG=System.getProperty("user.dir");
 			String old ="\\";
 			String mnew="/";
 			CheminG=CheminG.replace(old,mnew);
 			File fichier = new File(CheminG,"Data2.csv");
+			
+			if(fichier.exists() && !fichier.isDirectory()) { 
+			    // do something
+				FileWriter fw = new FileWriter(CheminG+"/Data2.csv",true);
+				//System.out.println("Fichier deja existant");
+				fw.write(nom+";"+prenom+";"+hobbit+";"+idImage+";"+Jour+"/"+Mois+"/"+Annee+";"+Age+";"+ville+";"+rueNumero+";"+CodePostal+";"+region+";"+pays+";"+numTel+";"+email+";"+sexe+";"+attiranceSexuelle+";"+AgeMinimumPreference+";"+AgeMaximumPreference+";"+presentationCommentaire+";");
+			    fw.write("\r\n");
+				fw.close();
+			}
+			else
+			{	
+			
 			//Création du fichier de donnés txt dans le chemin actuel
 			//File fichier = new File(CheminG,"Data.csv");
 			//Ecriture des données selon le format correspondant
@@ -155,7 +179,7 @@ public class SerialisationCSV {
 			PrintWriter writer =  new PrintWriter(CheminG+"/Data2.csv", "UTF-8");
 			writer.println(nom+";"+prenom+";"+hobbit+";"+idImage+";"+Jour+"/"+Mois+"/"+Annee+";"+Age+";"+ville+";"+rueNumero+";"+CodePostal+";"+region+";"+pays+";"+numTel+";"+email+";"+sexe+";"+attiranceSexuelle+";"+AgeMinimumPreference+";"+AgeMaximumPreference+";"+presentationCommentaire+";");
 			writer.close();
-			
+			}
 		}
 
 	
