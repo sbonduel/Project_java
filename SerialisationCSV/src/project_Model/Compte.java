@@ -1,7 +1,7 @@
-package project;
-
+package project_Model;
 
 import java.util.Date;
+
 
 public class Compte {
     private String nom;
