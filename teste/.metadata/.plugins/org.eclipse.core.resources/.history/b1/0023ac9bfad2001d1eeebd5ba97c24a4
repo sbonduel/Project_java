@@ -1,0 +1,35 @@
+package deyt_sal_gosse;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Page_1 extends JPanel {
+    private JLabel lblNom, lblPrenom, lblAge, lblAdresse;
+    private JTextField txtNom, txtPrenom, txtAge, txtAdresse;
+
+    public Page_1() {
+        // création des composants de la page
+        lblNom = new JLabel("Nom:");
+        txtNom = new JTextField(20);
+        lblPrenom = new JLabel("Prénom:");
+        txtPrenom = new JTextField(20);
+        lblAge = new JLabel("Age:");
+        txtAge = new JTextField(3);
+        lblAdresse = new JLabel("Adresse:");
+        txtAdresse = new JTextField(50);
+
+        // création du panneau principal
+        JPanel page_1 = new JPanel(new GridLayout(4, 2));
+        page_1.add(lblNom);
+        page_1.add(txtNom);
+        page_1.add(lblPrenom);
+        page_1.add(txtPrenom);
+        page_1.add(lblAge);
+        page_1.add(txtAge);
+        page_1.add(lblAdresse);
+        page_1.add(txtAdresse);
+
+        // ajout du panneau principal au panneau "page_1"
+        this.add(page_1);
+    }
+}
