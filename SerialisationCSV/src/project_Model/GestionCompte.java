@@ -1,5 +1,6 @@
 package project_Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,6 +22,11 @@ public class GestionCompte {
         for (Compte compte : this.comptes) {
             System.out.println(compte);
         }
+    }
+    
+    // Afficher tous les comptes
+    public ArrayList<Compte> get_comptes() {
+    	return comptes;
     }
 
     // Rechercher un compte par nom et prénom
@@ -44,12 +50,12 @@ public class GestionCompte {
     
 
     // Modifier son propre compte
-    public void modifierCompte(String nom, String prenom, String hobbit, String idImage, Date anniversaire, int age, Compte.Adresse adresse, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire) {
+    public void modifierCompte(String nom, String prenom, String hobbit, String idImage, int anive_ane,  int anive_mois,  int anive_jours, int age, Compte.Adresse adresse, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire) {
         Compte compte = this.rechercherCompte(nom, prenom, idImage);
         if (compte != null) {
             compte.setHobbit(hobbit);
             compte.setIdImage(idImage);
-            compte.setAnniversaire(anniversaire);
+            compte.setAnniversaire(LocalDate.of(anive_ane, anive_mois, anive_jours));
             compte.setAge(age);
             compte.setAdresse(adresse);
             compte.setNumTel(numTel);

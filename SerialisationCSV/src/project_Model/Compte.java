@@ -1,14 +1,13 @@
 package project_Model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 
 public class Compte {
     private String nom;
     private String prenom;
     private String hobbit;
     private String idImage;
-    private Date anniversaire;
+    private LocalDate anniversaire;
     private int age;
     private Adresse adresse;
     private String numTel;
@@ -22,11 +21,11 @@ public class Compte {
     public class Adresse {
         private String ville;
         private String rueNumero;
-        private int codePostal;
+        private String codePostal;
         private String region;
         private String pays;
         
-        public Adresse(String ville, String rueNumero, int codePostal, String region, String pays) {
+        public Adresse(String ville, String rueNumero, String codePostal, String region, String pays) {
             this.ville = ville;
             this.rueNumero = rueNumero;
             this.codePostal = codePostal;
@@ -35,14 +34,14 @@ public class Compte {
         }
     }
     
-    public Compte(String nom, String prenom, String hobbit, String idImage, Date anniversaire, int age, Adresse adresse, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire) {
+    public Compte(String nom, String prenom, String hobbit, String idImage, LocalDate date, int i, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire) {
         this.nom = nom;
         this.prenom = prenom;
         this.hobbit = hobbit;
         this.idImage = idImage;
         this.anniversaire = anniversaire;
-        this.age = age;
-        this.adresse = adresse;
+        this.age = i;
+        this.adresse = null;
         this.numTel = numTel;
         this.email = email;
         this.sexe = sexe;
@@ -85,7 +84,7 @@ public class Compte {
         return idImage;
     }
     
-    public Date getAnniversaire() {
+    public LocalDate getAnniversaire() {
         return anniversaire;
     }
     
@@ -111,8 +110,9 @@ public class Compte {
         return adresse.rueNumero;
     }
     
-    public int getAdressecodePostal() {
-        return adresse.codePostal;
+    
+    public String  getAdressestringcodePostal() {
+    	return adresse.codePostal;
     }
     
     public String getAdresseregion() {
@@ -167,7 +167,7 @@ public class Compte {
         this.idImage = idImage;
     }
     
-    public void setAnniversaire(Date anniversaire) {
+    public void setAnniversaire(LocalDate anniversaire) {
         this.anniversaire = anniversaire;
     }
     
@@ -179,12 +179,16 @@ public class Compte {
         this.adresse = adresse;
     }
     
-    public void setAdresse(String ville, String rueNumero,  int codePostal, String region, String pays) {
-    	this.adresse.ville = ville;
-    	this.adresse.rueNumero = rueNumero;
-    	this.adresse.codePostal = codePostal;
-    	this.adresse.region = region;
-    	this.adresse.pays = pays;
+    public void setAdresse(String ville, String rueNumero, String codePostal, String region, String pays) {
+        if (this.adresse == null) {
+            this.adresse = new Adresse(ville, rueNumero, codePostal, region, pays);
+        } else {
+            this.adresse.ville = ville;
+            this.adresse.rueNumero = rueNumero;
+            this.adresse.codePostal = codePostal;
+            this.adresse.region = region;
+            this.adresse.pays = pays;
+        }
     }
 
     
@@ -196,7 +200,7 @@ public class Compte {
     	this.adresse.rueNumero = rueNumero;
     }
     
-    public void setAdressePostal(int codePostal) {
+    public void setAdressePostal(String codePostal) {
     	this.adresse.codePostal = codePostal; 
     }
     
