@@ -29,7 +29,7 @@ public class Fenetre extends JFrame {
         menu = new Menu();
         connexion_panel = new ConnexionPanel();
         s_incrire = new inscription();
-        affiche_compte = new affiche_compte(gestionCompte);
+        //affiche_compte = new affiche_compte(gestionCompte);
         add(Box.createRigidArea(new Dimension(0, 510))); // Ajouter un espace rigide pour déplacer le panneau de connexion vers le centre
         
         //pack(); // Ajuster la taille de la fenêtre pour qu'elle s'adapte à son contenu
@@ -167,7 +167,7 @@ public class Fenetre extends JFrame {
         
         Fenetre f = new Fenetre(gestionCompte);
         f.setVisible(true);
-    	int panel = 0;
+    	int panel = 2;
     	
         
 
@@ -190,7 +190,7 @@ public class Fenetre extends JFrame {
             f.menu.getMenu().add(new JMenuItem("déconectez"));
             f.menu.getMenu().add(new JMenuItem("S'inscrire"));
             
-        	f.add(f.affiche_compte, BorderLayout.CENTER);
+        	//f.add(f.affiche_compte, BorderLayout.CENTER);
         }
     	
     	
