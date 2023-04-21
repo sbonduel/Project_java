@@ -29,7 +29,7 @@ public class Fenetre extends JFrame {
         menu = new Menu();
         connexion_panel = new ConnexionPanel();
         s_incrire = new inscription();
-        //affiche_compte = new affiche_compte(gestionCompte);
+        affiche_compte = new affiche_compte(gestionCompte);
         add(Box.createRigidArea(new Dimension(0, 510))); // Ajouter un espace rigide pour déplacer le panneau de connexion vers le centre
         
         //pack(); // Ajuster la taille de la fenêtre pour qu'elle s'adapte à son contenu
@@ -45,7 +45,7 @@ public class Fenetre extends JFrame {
         compte1.setPrenom("Pierre");
         compte1.setAge(25);
         compte1.setAdresse("Paris", "rue du Faubourg Saint-Honoré", "75008", "Ile-de-France", "France");
-        compte1.setIdImage("Image/1.png"); // Ajout de l'attribut idImage
+        compte1.setIdImage("img/1.jpg"); // Ajout de l'attribut idImage
         compte1.setAnniversaire(LocalDate.of(1998, 5, 12)); // Ajout de l'attribut anniversaire
         compte1.setNumTel("0123456789"); // Ajout de l'attribut numTel
         compte1.setEmail("pierre.dupont@email.com"); // Ajout de l'attribut email
@@ -61,7 +61,7 @@ public class Fenetre extends JFrame {
         compte2.setPrenom("Sophie");
         compte2.setAge(28);
         compte2.setAdresse("Lille", "rue Nationale", "59000", "Hauts-de-France", "France");
-        compte2.setIdImage("Image/5.png");
+        compte2.setIdImage("img/5.jpg");
         compte2.setAnniversaire(LocalDate.of(1995, 9, 2));
         compte2.setNumTel("0678901234");
         compte2.setEmail("sophie.lefebvre@email.com");
@@ -78,7 +78,7 @@ public class Fenetre extends JFrame {
         compte3.setPrenom("Camille");
         compte3.setAge(24);
         compte3.setAdresse("Nantes", "rue de la Paix", "44000", "Pays de la Loire", "France");
-        compte3.setIdImage("Image/23.png");
+        compte3.setIdImage("img/23.jpg");
         compte3.setAnniversaire(LocalDate.of(1999, 3, 21));
         compte3.setNumTel("0689123456");
         compte3.setEmail("camille.leroy@email.com");
@@ -94,7 +94,7 @@ public class Fenetre extends JFrame {
         compte4.setPrenom("Antoine");
         compte4.setAge(32);
         compte4.setAdresse("Toulouse", "avenue Jean Chaubet", "31000", "Occitanie", "France");
-        compte4.setIdImage("Image/12.png");
+        compte4.setIdImage("img/12.jpg");
         compte4.setAnniversaire(LocalDate.of(1989, 12, 8));
         compte4.setNumTel("0645678901");
         compte4.setEmail("antoine.martin@email.com");
@@ -110,7 +110,7 @@ public class Fenetre extends JFrame {
         compte6.setPrenom("Julie");
         compte6.setAge(28);
         compte6.setAdresse("Montreal", "rue Sainte-Catherine", "H3G 1M8", "Quebec", "Canada");
-        compte6.setIdImage("Image/6.png");
+        compte6.setIdImage("img/6.jpg");
         compte6.setAnniversaire(LocalDate.of(1995, 9, 8));
         compte6.setNumTel("+1 514-123-4567");
         compte6.setEmail("julie.bouchard@email.com");
@@ -126,7 +126,7 @@ public class Fenetre extends JFrame {
         compte7.setPrenom("Trung");
         compte7.setAge(31);
         compte7.setAdresse("Ho Chi Minh", "rue Nguyen Hue", "700000", "Sud", "Vietnam");
-        compte7.setIdImage("Image/7.png");
+        compte7.setIdImage("img/7.jpg");
         compte7.setAnniversaire(LocalDate.of(1992, 11, 18));
         compte7.setNumTel("+84 123-456-789");
         compte7.setEmail("trung.nguyen@email.com");
@@ -143,7 +143,7 @@ public class Fenetre extends JFrame {
         compte8.setAge(26);
         compte8.setAdresse("London", "Oxford Street", "W1D 2DW", "Greater London", "United Kingdom");
 
-        compte8.setIdImage("Image/8.png");
+        compte8.setIdImage("img/8.png");
         compte8.setAnniversaire(LocalDate.of(1997, 4, 25));
         compte8.setNumTel("+44 20 1234 5678");
         compte8.setEmail("emma.smith@email.com");
@@ -190,7 +190,7 @@ public class Fenetre extends JFrame {
             f.menu.getMenu().add(new JMenuItem("déconectez"));
             f.menu.getMenu().add(new JMenuItem("S'inscrire"));
             
-        	//f.add(f.affiche_compte, BorderLayout.CENTER);
+        	f.add(f.affiche_compte, BorderLayout.CENTER);
         }
     	
     	
