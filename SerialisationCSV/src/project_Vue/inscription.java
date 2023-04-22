@@ -4,12 +4,43 @@ import java.awt.*;
 import javax.swing.*;
 
 public class inscription extends JPanel {
-
+	public static String[] activites = {
+		    "Lecture",
+		    "Écriture",
+		    "Cuisine",
+		    "Jardinage",
+		    "Sport",
+		    "Danse",
+		    "Théâtre",
+		    "Cinéma",
+		    "Voyages",
+		    "Photographie",
+		    "Peinture",
+		    "Sculpture",
+		    "Méditation",
+		    "Yoga",
+		    "Musique",
+		    "Natation",
+		    "Escalade",
+		    "Camping",
+		    "Pêche",
+		    "Équitation",
+		    "Ski",
+		    "Plongée",
+		    "Surf",
+		    "Voile",
+		    "Marche"
+		};
+	
+	public static  SpinnerModel spinnerModel = new SpinnerNumberModel(18, 18, 200, 1);
+	public static  SpinnerModel spinnerModel1 = new SpinnerNumberModel(18, 18, 200, 1);
+	public static  SpinnerModel spinnerModel2 = new SpinnerNumberModel(18, 18, 200, 1);
     
 	
 	public inscription() {
 		setLayout(new BorderLayout()); // Utiliser un BorderLayout pour ce panneau
 		JPanel inscriptions = new JPanel(new GridLayout(0, 1));
+		
     //
     JPanel nomprenom = new JPanel();
     JLabel nom= new JLabel("nom :");
@@ -18,11 +49,10 @@ public class inscription extends JPanel {
     JTextField prenom_1 = new JTextField();
 
     
-    //
+    //problème ici
     JPanel age_sexe_email = new JPanel();
     JLabel age = new JLabel("âge :");
-    JTextField age_1 = new JTextField();
-    
+    JSpinner age_1 = new JSpinner(spinnerModel);
     JLabel sex= new JLabel("sex :");
     JTextField sex_1 = new JTextField();
     JLabel email= new JLabel("email :");
@@ -31,7 +61,8 @@ public class inscription extends JPanel {
     
     JPanel hobbits = new JPanel();
     JLabel hobbit = new JLabel("hobbit :");
-    JTextField hobbit_1 = new JTextField();
+    JComboBox<String> hobbit_1 = new JComboBox<String>(activites);
+    
 
     JPanel image = new JPanel();
     JLabel idImage= new JLabel("nom de votre image :");
@@ -50,9 +81,9 @@ public class inscription extends JPanel {
     JPanel agepref = new JPanel();
     JLabel agepreference= new JLabel("âge minimum et maximum :");
     JLabel agemin= new JLabel("âge minimum :");
-    JTextField agemin_1 = new JTextField();
+    JSpinner agemin_1 = new JSpinner(spinnerModel1);
     JLabel agemax= new JLabel("âge maximum :");
-    JTextField agemax_1 = new JTextField();
+    JSpinner agemax_1 = new JSpinner(spinnerModel2);
 
     JPanel adresse = new JPanel();
     JLabel adresses = new JLabel("adresse :");

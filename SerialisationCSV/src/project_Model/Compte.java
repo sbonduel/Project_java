@@ -3,6 +3,8 @@ package project_Model;
 import java.time.LocalDate;
 
 public class Compte {
+	private String user;
+	private String mots_de_passe;
     private String nom;
     private String prenom;
     private String hobbit;
@@ -34,7 +36,7 @@ public class Compte {
         }
     }
     
-    public Compte(String nom, String prenom, String hobbit, String idImage, LocalDate date, int i, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire) {
+    public Compte(String nom, String prenom, String hobbit, String idImage, LocalDate date, int i, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire, String mots_de_passe, String user) {
         this.nom = nom;
         this.prenom = prenom;
         this.hobbit = hobbit;
@@ -49,6 +51,8 @@ public class Compte {
         this.ageMinPref = ageMinPref;
         this.ageMaxPref = ageMaxPref;
         this.presentationCommentaire = presentationCommentaire;
+    	this.user=user;
+    	this.mots_de_passe=mots_de_passe;
     }
     
     public Compte() {
@@ -64,7 +68,7 @@ public class Compte {
         this.sexe = null;
         this.attiranceSexuelle = null;
         this.ageMinPref = 18;
-        this.ageMaxPref = 0;
+        this.ageMaxPref = 999;
         this.presentationCommentaire = null;
     }
     
@@ -147,8 +151,16 @@ public class Compte {
         return ageMaxPref;
     }
     
-    public String getPresentationCommentaire() {
+    public String getUser() {
+        return user;
+    }
+    
+    public String getmots_de_passe() {
         return presentationCommentaire;
+    }
+    
+    public String getPresentationCommentaire() {
+        return mots_de_passe;
     }
     
     public void setNom(String nom) {
@@ -240,6 +252,15 @@ public class Compte {
     
     public void setpresentationCommentaire(String presentationCommentaire) {
         this.presentationCommentaire = presentationCommentaire;
+    }
+    
+    
+    public void setUser(String user) {
+        this.user=user;
+    }
+    
+    public void setmots_de_passe(String mots_de_passe) {
+    	this.mots_de_passe=mots_de_passe;
     }
 
 }

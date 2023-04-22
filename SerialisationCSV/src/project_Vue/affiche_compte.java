@@ -31,15 +31,17 @@ public class affiche_compte extends JPanel {
     public affiche_compte(GestionCompte gestionCompte) {
         JPanel panel_comptes = new JPanel(new GridLayout(0, 3, 10, 10));
         scrollPane = new JScrollPane(panel_comptes);
+        
 
         for (Compte compte : gestionCompte.get_comptes()) {
             JPanel panel_compte = new JPanel(new BorderLayout(10, 10));
             // Charger l'image à partir d'un fichier
+            
             try {
                 image = ImageIO.read(new File(compte.getIdImage()));
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            } 
 
             // Créer un objet JLabel pour afficher l'image
             ImageIcon icon = new ImageIcon(image.getScaledInstance(150, 150, BufferedImage.SCALE_SMOOTH));

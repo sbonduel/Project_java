@@ -167,7 +167,7 @@ public class Fenetre extends JFrame {
         
         Fenetre f = new Fenetre(gestionCompte);
         f.setVisible(true);
-    	int panel = 2;
+    	int panel = 1;
     	
         
 
@@ -184,7 +184,7 @@ public class Fenetre extends JFrame {
         	f.add(f.s_incrire, BorderLayout.CENTER);
         }
         if (panel==2) {
-        	f.setSize(1100, 600); 
+        	f.setSize(1100, 610); 
         	f.add(f.recherche, BorderLayout.NORTH);
         	f.setJMenuBar(f.menu.getMenuBar());
             f.menu.getMenu().add(new JMenuItem("déconectez"));

@@ -9,6 +9,7 @@ public class ConnexionPanel extends JPanel {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton loginButton;
+    private JButton signinButton;
 
     public ConnexionPanel() {
         setLayout(new BorderLayout()); // Utiliser un BorderLayout pour ce panneau
@@ -23,6 +24,8 @@ public class ConnexionPanel extends JPanel {
         connexionPanel.add(passwordField);
         loginButton = new JButton("Se connecter");
         connexionPanel.add(loginButton);
+        signinButton =  new JButton("S'indentifier");
+        connexionPanel.add(signinButton);
         add(connexionPanel, BorderLayout.CENTER); // Ajouter le panneau de connexion au centre du panneau principal
         
         setPreferredSize(new Dimension(500, 500)); // Définir la taille préférée du panneau de connexion
