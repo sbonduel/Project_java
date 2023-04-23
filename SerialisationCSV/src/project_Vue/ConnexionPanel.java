@@ -30,4 +30,26 @@ public class ConnexionPanel extends JPanel {
         
         setPreferredSize(new Dimension(500, 500)); // Définir la taille préférée du panneau de connexion
     }
+
+	public JTextField getusername() {
+		// TODO Auto-generated method stub
+		return usernameField;
+	}
+	
+	public JPasswordField getpassword() {
+		// TODO Auto-generated method stub
+		return passwordField;
+	}
+	
+	
+	public JButton getLoginButton() {
+		// TODO Auto-generated method stub
+		return loginButton;
+	}
+	
+	
+	public JButton getSigninButton() {
+		// TODO Auto-generated method stub
+		return signinButton;
+	}
 }

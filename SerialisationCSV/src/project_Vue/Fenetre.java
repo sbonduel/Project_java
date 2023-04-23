@@ -167,7 +167,7 @@ public class Fenetre extends JFrame {
         
         Fenetre f = new Fenetre(gestionCompte);
         f.setVisible(true);
-    	int panel = 1;
+    	int panel = 0;
     	
         
 
@@ -177,10 +177,8 @@ public class Fenetre extends JFrame {
     	}
         if (panel==1) {
         	f.setSize(1100, 600); 
-        	f.add(f.recherche, BorderLayout.NORTH);
         	f.setJMenuBar(f.menu.getMenuBar());
-            f.menu.getMenu().add(new JMenuItem("déconectez"));
-            f.menu.getMenu().add(new JMenuItem("S'inscrire"));
+            f.menu.getMenu().add(new JMenuItem("conextion"));
         	f.add(f.s_incrire, BorderLayout.CENTER);
         }
         if (panel==2) {
@@ -188,7 +186,7 @@ public class Fenetre extends JFrame {
         	f.add(f.recherche, BorderLayout.NORTH);
         	f.setJMenuBar(f.menu.getMenuBar());
             f.menu.getMenu().add(new JMenuItem("déconectez"));
-            f.menu.getMenu().add(new JMenuItem("S'inscrire"));
+            f.menu.getMenu().add(new JMenuItem("home"));
             
         	f.add(f.affiche_compte, BorderLayout.CENTER);
         }
