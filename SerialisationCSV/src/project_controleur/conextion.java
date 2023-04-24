@@ -11,10 +11,12 @@ public class conextion {
     private ConnexionPanel view;
     private GestionCompte gestionCompte;
     public Compte compte_conect;
+    public int panel;
     
-    public conextion(ConnexionPanel view, GestionCompte gestionCompte) {
+    public conextion(ConnexionPanel view, GestionCompte gestionCompte, int panel) {
         this.view = view;
         this.gestionCompte = gestionCompte;
+        this.panel=panel;
 
         
         view.getLoginButton().addActionListener(e -> handleLogin());
@@ -26,8 +28,7 @@ public class conextion {
         String password = new String(view.getpassword().getPassword());
         for (Compte compte : gestionCompte.get_comptes()) {
         	if (username.equals(compte.getUser()) && password.equals(compte.getmots_de_passe())) {
-        		
-        		int panel = 1;
+        		Fenetre f= new Fenetre(gestionCompte,  panel);
         		compte_conect = compte;
             }
         }
@@ -43,5 +44,7 @@ public class conextion {
     
     private void handleSignin() {
         // Ouvrir la vue d'inscription correspondante
+    	panel = 1;
+    	Fenetre f= new Fenetre(gestionCompte,  panel);
     }
 }

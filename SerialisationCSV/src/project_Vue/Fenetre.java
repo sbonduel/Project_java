@@ -2,25 +2,77 @@ package project_Vue;
 
 import java.awt.*;
 import java.util.Date;
-
 import javax.swing.*;
-
 import project_Model.Compte;
 import project_Model.GestionCompte;
-
 import java.time.LocalDate;
+
 
 public class Fenetre extends JFrame {
     public Panel_recherche recherche;
     public ConnexionPanel connexion_panel;
     public affiche_compte affiche_compte;
+    public int panel;
     
     private Menu menu;
     private inscription s_incrire;
-    
+    /*
+    package project_Vue;
 
-    public Fenetre(GestionCompte gestionCompte) {
+    import java.awt.BorderLayout;
+    import java.awt.Dimension;
+
+    import javax.swing.JFrame;
+    import javax.swing.JPanel;
+
+    import project_Model.GestionCompte;
+
+    public class Fenetre extends JFrame {
+        private static final long serialVersionUID = 1L;
+        private GestionCompte gestionCompte;
+        private affiche_compte afficheCompte;
+        private ConnexionPanel connexionPanel;
+
+        public Fenetre(GestionCompte gestionCompte) {
+            this.gestionCompte = gestionCompte;
+            this.afficheCompte = new affiche_compte(gestionCompte);
+            this.connexionPanel = new ConnexionPanel();
+
+            // Ecouter les événements de connexion
+            connexionPanel.addConnexionListener((nom, prenom, age) -> {
+                // Ajouter un compte à la gestion des comptes
+                gestionCompte.add_compte(nom, prenom, age, "default.jpg");
+
+                // Mettre à jour l'affichage des comptes
+                getContentPane().removeAll();
+                afficheCompte = new affiche_compte(gestionCompte);
+                getContentPane().add(afficheCompte, BorderLayout.CENTER);
+                getContentPane().revalidate();
+                getContentPane().repaint();
+            });
+
+            // Ajouter les composants à la fenêtre
+            JPanel panel = new JPanel(new BorderLayout());
+            panel.add(connexionPanel, BorderLayout.NORTH);
+            panel.add(afficheCompte, BorderLayout.CENTER);
+            getContentPane().add(panel);
+
+            // Configurer la fenêtre
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setTitle("Gestion des comptes");
+            setPreferredSize(new Dimension(1200, 800));
+            pack();
+            setLocationRelativeTo(null);
+            setVisible(true);
+        }
+    }
+
+    */
+
+    public Fenetre(GestionCompte gestionCompte, int panel) {
+    	
         super("Champo_Love");
+        this.panel=panel;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
         setLocationRelativeTo(null); // Centrer la fenêtre sur l'écran
@@ -38,7 +90,7 @@ public class Fenetre extends JFrame {
     public static void main(String[] args) {
     	
     	GestionCompte gestionCompte = new GestionCompte();
-
+    	int panel = 0;
         // Créer un compte 1
         Compte compte1 = new Compte();
         compte1.setNom("Dupont");
@@ -165,9 +217,9 @@ public class Fenetre extends JFrame {
         gestionCompte.ajouterCompte(compte8);
         
         
-        Fenetre f = new Fenetre(gestionCompte);
+        Fenetre f = new Fenetre(gestionCompte, panel);
         f.setVisible(true);
-    	int panel = 0;
+    	
     	
         
 
