@@ -156,7 +156,7 @@ public class Compte {
     }
     
     public String getmots_de_passe() {
-        return presentationCommentaire;
+        return mots_de_passe;
     }
     
     public String getPresentationCommentaire() {

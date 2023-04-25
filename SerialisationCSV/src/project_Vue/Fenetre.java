@@ -1,10 +1,10 @@
 package project_Vue;
 
 import java.awt.*;
-import java.util.Date;
 import javax.swing.*;
-import project_Model.Compte;
-import project_Model.GestionCompte;
+import project_Model.*;
+import project_controleur.*;
+
 import java.time.LocalDate;
 
 
@@ -12,10 +12,9 @@ public class Fenetre extends JFrame {
     public Panel_recherche recherche;
     public ConnexionPanel connexion_panel;
     public affiche_compte affiche_compte;
-    public int panel;
     
-    private Menu menu;
-    private inscription s_incrire;
+    public  Menu menu;
+    public inscription s_incrire;
     /*
     package project_Vue;
 
@@ -69,10 +68,10 @@ public class Fenetre extends JFrame {
 
     */
 
-    public Fenetre(GestionCompte gestionCompte, int panel) {
+    public Fenetre(GestionCompte gestionCompte) {
     	
         super("Champo_Love");
-        this.panel=panel;
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
         setLocationRelativeTo(null); // Centrer la fenêtre sur l'écran
@@ -85,7 +84,10 @@ public class Fenetre extends JFrame {
         add(Box.createRigidArea(new Dimension(0, 510))); // Ajouter un espace rigide pour déplacer le panneau de connexion vers le centre
         
         //pack(); // Ajuster la taille de la fenêtre pour qu'elle s'adapte à son contenu
+
+        
     }
+    
 
     public static void main(String[] args) {
     	
@@ -106,6 +108,8 @@ public class Fenetre extends JFrame {
         compte1.setageMinPref(20); // Ajout de l'attribut ageMinPref
         compte1.setageMaxPref(30); // Ajout de l'attribut ageMaxPref
         compte1.setpresentationCommentaire("Bonjour, je suis Pierre, un jeune Parisien qui aime les voyages et la gastronomie."); // Ajout de l'attribut presentationCommentaire
+        compte1.setUser("User1"); // Ajout de l'attribut user
+        compte1.setmots_de_passe("mdp1"); // Ajout de l'attribut mots_de_passe
 
         // Créer un compte 2
         Compte compte2 = new Compte();
@@ -122,7 +126,8 @@ public class Fenetre extends JFrame {
         compte2.setageMinPref(25);
         compte2.setageMaxPref(35);
         compte2.setpresentationCommentaire("Bonjour, je m'appelle Sophie et je suis une passionnée de musique et de danse. J'adore également découvrir de nouvelles cultures en voyageant.");
-
+        compte2.setUser("1"); // Ajout de l'attribut user
+        compte2.setmots_de_passe("2"); // Ajout de l'attribut mots_de_passe
 
         // Créer un compte 3
         Compte compte3 = new Compte();
@@ -139,7 +144,9 @@ public class Fenetre extends JFrame {
         compte3.setageMinPref(22);
         compte3.setageMaxPref(30);
         compte3.setpresentationCommentaire("Coucou, je m'appelle Camille et je suis étudiante en art à Nantes. J'adore la peinture et la photographie, et je recherche une personne avec qui partager ma passion pour l'art.");
-
+        compte3.setUser("User3"); // Ajout de l'attribut user
+        compte3.setmots_de_passe("mdp3"); // Ajout de l'attribut mots_de_passe
+        
         // Créer un compte 4
         Compte compte4 = new Compte();
         compte4.setNom("Martin");
@@ -155,6 +162,8 @@ public class Fenetre extends JFrame {
         compte4.setageMinPref(28);
         compte4.setageMaxPref(40);
         compte4.setpresentationCommentaire("Salut, je suis Antoine, un Toulousain fan de rugby et de randonnées en montagne. Je cherche quelqu'un avec qui partager ces passions.");
+        compte4.setUser("User4"); // Ajout de l'attribut user
+        compte4.setmots_de_passe("mdp4"); // Ajout de l'attribut mots_de_passe
         
         // Créer un compte 6
         Compte compte6 = new Compte();
@@ -171,14 +180,16 @@ public class Fenetre extends JFrame {
         compte6.setageMinPref(25);
         compte6.setageMaxPref(35);
         compte6.setpresentationCommentaire("Bonjour, je m'appelle Julie et j'aime les activités de plein air, la musique et les voyages. Je suis à la recherche de quelqu'un avec qui partager de bons moments.");
-
+        compte6.setUser("User6"); // Ajout de l'attribut user
+        compte6.setmots_de_passe("mdp6"); // Ajout de l'attribut mots_de_passe
+        
         // Créer un compte 7
         Compte compte7 = new Compte();
         compte7.setNom("Nguyen");
         compte7.setPrenom("Trung");
         compte7.setAge(31);
         compte7.setAdresse("Ho Chi Minh", "rue Nguyen Hue", "700000", "Sud", "Vietnam");
-        compte7.setIdImage("img/7.jpg");
+        compte7.setIdImage("img/11.jpg");
         compte7.setAnniversaire(LocalDate.of(1992, 11, 18));
         compte7.setNumTel("+84 123-456-789");
         compte7.setEmail("trung.nguyen@email.com");
@@ -187,6 +198,8 @@ public class Fenetre extends JFrame {
         compte7.setageMinPref(25);
         compte7.setageMaxPref(40);
         compte7.setpresentationCommentaire("Bonjour, je suis Trung et je suis passionné de cuisine et de sport. Je cherche à rencontrer des personnes partageant les mêmes centres d'intérêt.");
+        compte7.setUser("User7"); // Ajout de l'attribut user
+        compte7.setmots_de_passe("mdp7"); // Ajout de l'attribut mots_de_passe
 
         // Créer un compte 8
         Compte compte8 = new Compte();
@@ -195,7 +208,7 @@ public class Fenetre extends JFrame {
         compte8.setAge(26);
         compte8.setAdresse("London", "Oxford Street", "W1D 2DW", "Greater London", "United Kingdom");
 
-        compte8.setIdImage("img/8.png");
+        compte8.setIdImage("img/6.png");
         compte8.setAnniversaire(LocalDate.of(1997, 4, 25));
         compte8.setNumTel("+44 20 1234 5678");
         compte8.setEmail("emma.smith@email.com");
@@ -204,6 +217,8 @@ public class Fenetre extends JFrame {
         compte8.setageMinPref(20);
         compte8.setageMaxPref(30);
         compte8.setpresentationCommentaire("Hello, I'm Emma and I love to travel, read and dance. Looking for someone to share some fun experiences with!");
+        compte8.setUser("User8"); // Ajout de l'attribut user
+        compte8.setmots_de_passe("mdp8"); // Ajout de l'attribut mots_de_passe
 
 
         // Ajouter les comptes à la liste de gestion de comptes
@@ -217,21 +232,24 @@ public class Fenetre extends JFrame {
         gestionCompte.ajouterCompte(compte8);
         
         
-        Fenetre f = new Fenetre(gestionCompte, panel);
+        Fenetre f = new Fenetre(gestionCompte);
+        conextion c = new conextion(gestionCompte,  f) ;
+        incription i = new incription(gestionCompte,  f);
+        
+        
         f.setVisible(true);
     	
     	
         
 
         
-        if (panel==0) {
-    		f.add(f.connexion_panel, BorderLayout.CENTER);
-    	}
+        f.add(f.connexion_panel, BorderLayout.CENTER);
         if (panel==1) {
         	f.setSize(1100, 600); 
         	f.setJMenuBar(f.menu.getMenuBar());
             f.menu.getMenu().add(new JMenuItem("conextion"));
         	f.add(f.s_incrire, BorderLayout.CENTER);
+        	
         }
         if (panel==2) {
         	f.setSize(1100, 610); 
@@ -246,4 +264,5 @@ public class Fenetre extends JFrame {
     	
 
     }
+
 }

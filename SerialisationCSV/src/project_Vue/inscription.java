@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class inscription extends JPanel {
 	public static String[] activites = {
+			null,
 		    "Lecture",
 		    "Écriture",
 		    "Cuisine",
@@ -34,13 +35,14 @@ public class inscription extends JPanel {
 	
 	
 	public static String[] type_sexe = {
+			null,
 		    "femme",
 		    "hemme",
-		    "transsexuel",
-		    "non binaire",
 		    "herms",
 		    "ferms",
 		    "merms",
+		    "transsexuel",
+		    "non binaire"
 		};
 	
 	public static  SpinnerModel spinnerModel = new SpinnerNumberModel(18, 18, 200, 1);
@@ -72,6 +74,8 @@ public class inscription extends JPanel {
 	public JSpinner jours_1 = new JSpinner(spinnerModel4);
 	public JSpinner mois_1 = new JSpinner(spinnerModel5);
 	public JSpinner anees_1 = new JSpinner(spinnerModel6);
+	public JTextField usernameField = new JTextField();
+	public JPasswordField passwordField = new JPasswordField();
 	
 	
 	public JButton confirme = new JButton("confirmer");
@@ -79,7 +83,7 @@ public class inscription extends JPanel {
 	public inscription() {
 		setLayout(new BorderLayout()); // Utiliser un BorderLayout pour ce panneau
 		JPanel inscriptions = new JPanel(new GridLayout(0, 1));
-		
+
     //
 	JPanel nomprenom = new JPanel();
     JLabel nom= new JLabel("nom :");
@@ -99,7 +103,7 @@ public class inscription extends JPanel {
     
 
     JPanel image = new JPanel();
-    JLabel idImage= new JLabel("nom de votre image :");
+    JLabel idImage= new JLabel("nom de votre image .[type] (.png ou .jpg):");
     
 
     JPanel orientation_sex_numTel = new JPanel();
@@ -132,6 +136,11 @@ public class inscription extends JPanel {
     JLabel mois = new JLabel("mois :");
     JLabel anees = new JLabel("année :");
 
+    
+     JPanel connexionPanel = new JPanel(); // Utiliser un GridLayout pour le panneau de connexion
+     JLabel usernameLabel = new JLabel("Nom d'utilisateur:");
+     JLabel passwordLabel = new JLabel("Mot de passe:");
+     
 
     hobbits.add(hobbit);
     hobbits.add(hobbit_1);
@@ -150,6 +159,8 @@ public class inscription extends JPanel {
     presentation_Commentaire.add(presentationCommentaire);
     presentation_Commentaire.add(presentationCommentaire_1);
     inscriptions.add(presentation_Commentaire);
+    
+    
 
     agepref.add(agepreference);
     agepref.add(agemin);
@@ -190,7 +201,16 @@ public class inscription extends JPanel {
     age_sexe_email.add(email_1);
     inscriptions.add(age_sexe_email);
     
+
+    connexionPanel.add(usernameLabel);
+    connexionPanel.add(usernameField);
+    connexionPanel.add(passwordLabel);
+    connexionPanel.add(passwordField);
+    inscriptions.add(connexionPanel);
+    
+    
     inscriptions.add(confirme);
+    
 
     // continue
     add(inscriptions, BorderLayout.CENTER);
@@ -218,5 +238,111 @@ public class inscription extends JPanel {
     mois_1.setPreferredSize(new Dimension(x, y));
     anees_1.setPreferredSize(new Dimension(x, y));
     
+    anees_1.setPreferredSize(new Dimension(x, y));
+    anees_1.setPreferredSize(new Dimension(x, y));
+    usernameField.setPreferredSize(new Dimension(x, y));
+    passwordField.setPreferredSize(new Dimension(x, y));
+	
 	}
+	public JButton getconfirButton() {
+		// TODO Auto-generated method stub
+		return confirme;
+	}
+
+	
+	public JTextField getNomText() {
+	    return nom_1;
+	}
+	
+	public JTextField getprenomText() {
+	    return prenom_1;
+	}
+
+	public JSpinner getAgeSpinner() {
+	    return age_1;
+	}
+
+	public JComboBox<String> getSexComboBox() {
+	    return sex_1;
+	}
+
+	public JTextField getEmailText() {
+	    return email_1;
+	}
+
+	public JComboBox<String> getHobbitComboBox() {
+	    return hobbit_1;
+	}
+
+	public JTextField getIdImageText() {
+	    return idImage_1;
+	}
+
+	public JComboBox<String> getOrientationSexuelleComboBox() {
+	    return orentation_sexuelle_1;
+	}
+
+	public JTextField getNumTelText() {
+	    return numTel_1;
+	}
+
+	public JTextField getPresentationCommentaireText() {
+	    return presentationCommentaire_1;
+	}
+
+	public JSpinner getAgeMinSpinner() {
+	    return agemin_1;
+	}
+
+	public JSpinner getAgeMaxSpinner() {
+	    return agemax_1;
+	}
+
+	public JTextField getVilleText() {
+	    return Ville_1;
+	}
+
+	public JTextField getRueText() {
+	    return rue_1;
+	}
+
+	public JSpinner getNumRueSpinner() {
+	    return numrue_1;
+	}
+
+	public JTextField getCodePostalText() {
+	    return codePostal_1;
+	}
+
+	public JTextField getRegionText() {
+	    return region_1;
+	}
+
+	public JTextField getPaysText() {
+	    return pays_1;
+	}
+
+	public JSpinner getJoursSpinner() {
+	    return jours_1;
+	}
+
+	public JSpinner getMoisSpinner() {
+	    return mois_1;
+	}
+
+	public JSpinner getAnneesSpinner() {
+	    return anees_1;
+	}
+	
+	public JTextField getusername() {
+		// TODO Auto-generated method stub
+		return usernameField ;
+	}
+	
+	public JPasswordField getpassword() {
+		// TODO Auto-generated method stub
+		return passwordField;
+	}
+	
+	//JComboBox JSpinner JTextField
 }

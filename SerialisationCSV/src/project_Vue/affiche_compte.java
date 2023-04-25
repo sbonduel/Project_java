@@ -31,7 +31,6 @@ public class affiche_compte extends JPanel {
     public affiche_compte(GestionCompte gestionCompte) {
         JPanel panel_comptes = new JPanel(new GridLayout(0, 3, 10, 10));
         scrollPane = new JScrollPane(panel_comptes);
-        
 
         for (Compte compte : gestionCompte.get_comptes()) {
             JPanel panel_compte = new JPanel(new BorderLayout(10, 10));
@@ -39,6 +38,7 @@ public class affiche_compte extends JPanel {
             
             try {
                 image = ImageIO.read(new File(compte.getIdImage()));
+                
             } catch (IOException e) {
                 e.printStackTrace();
             } 
