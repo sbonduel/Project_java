@@ -235,6 +235,7 @@ public class Fenetre extends JFrame {
         Fenetre f = new Fenetre(gestionCompte);
         conextion c = new conextion(gestionCompte,  f) ;
         incription i = new incription(gestionCompte,  f);
+        //Controleur_affiche_compte a = new Controleur_affiche_compte(gestionCompte,  f);
         
         
         f.setVisible(true);
