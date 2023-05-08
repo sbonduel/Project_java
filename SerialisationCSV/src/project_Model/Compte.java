@@ -19,6 +19,7 @@ public class Compte {
     private int ageMinPref;
     private int ageMaxPref;
     private String presentationCommentaire;
+    private int matchmaking;
     
     public class Adresse {
         private String ville;
@@ -36,7 +37,7 @@ public class Compte {
         }
     }
     
-    public Compte(String nom, String prenom, String hobbit, String idImage, LocalDate date, int i, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire, String mots_de_passe, String user) {
+    public Compte(String nom, String prenom, String hobbit, String idImage, LocalDate date, int i, String numTel, String email, String sexe, String attiranceSexuelle, int ageMinPref, int ageMaxPref, String presentationCommentaire, String mots_de_passe, String user, int matchmaking) {
         this.nom = nom;
         this.prenom = prenom;
         this.hobbit = hobbit;
@@ -53,6 +54,7 @@ public class Compte {
         this.presentationCommentaire = presentationCommentaire;
     	this.user=user;
     	this.mots_de_passe=mots_de_passe;
+    	this.matchmaking=matchmaking;
     }
     
     public Compte() {
@@ -70,6 +72,7 @@ public class Compte {
         this.ageMinPref = 18;
         this.ageMaxPref = 999;
         this.presentationCommentaire = null;
+        this.matchmaking=0;
     }
     
     public String getNom() {
@@ -98,6 +101,10 @@ public class Compte {
     
     public Adresse getAdresse() {
         return adresse;
+    }
+    
+    public int getmatchmaking() {
+        return matchmaking;
     }
     /*
     private String ville;
@@ -202,7 +209,11 @@ public class Compte {
             this.adresse.pays = pays;
         }
     }
-
+    
+    public void setmatchmaking(int matchmaking) {
+        this.matchmaking = matchmaking;
+    }
+    
     
     public void setAdresseVile(String ville) {
         this.adresse.ville = ville;

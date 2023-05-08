@@ -41,7 +41,7 @@ public class incription {
         f.s_incrire.getconfirButton().addActionListener(e -> conextion_inscription(gestionCompte));
     }
     
-    public void conextion_inscription(GestionCompte gestionCompte) {
+    public Compte conextion_inscription(GestionCompte gestionCompte) {
     	String prenom = f.s_incrire.getprenomText().getText();
     	String nom = f.s_incrire.getNomText().getText();
     	
@@ -67,6 +67,7 @@ public class incription {
         int jours = (int) f.s_incrire.getJoursSpinner().getValue();
         int mois = (int) f.s_incrire.getMoisSpinner().getValue();
         int annees = (int) f.s_incrire.getAnneesSpinner().getValue();
+        Compte compte_nom =  gestionCompte.rechercherUser(username);
         
 
         	if (age>=18 && isEmailValid(email) && sex!=null && orientationSexuelle!=null && prenom!="" && nom!="" && pays!=""&& region!=""&& codePostal!=""&& rue!=""&& ville!=""&& numTel!=""&& (gestionCompte.rechercherUser(username)==(null))  )  {
@@ -104,9 +105,10 @@ public class incription {
                 f.menu.getMenu().add(new JMenuItem("déconectez"));
                 f.menu.getMenu().add(new JMenuItem("home"));
             	f.add(f.affiche_compte, BorderLayout.CENTER);
+            	
             }
        
- 
+        	return compte_nom;
         
     }
     

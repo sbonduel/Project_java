@@ -39,6 +39,120 @@ import javax.swing.*;
 
 import project_Model.Compte;
 import project_Model.GestionCompte;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Stack;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import project_Model.Compte;
+import project_Model.GestionCompte;
+
+public class affiche_compte extends JPanel {
+
+    private static final long serialVersionUID = 1L;
+    private BufferedImage image;
+    public JScrollPane scrollPane;
+    public JButton rencontre;
+    public JButton matchemaiking;
+    public JButton modifier;
+    public Fenetre f;
+
+    public affiche_compte(GestionCompte gestionCompte) {
+        JPanel panel_comptes = new JPanel(new GridLayout(0, 3, 10, 10));
+        scrollPane = new JScrollPane(panel_comptes);
+
+        for (Compte compte : gestionCompte.get_comptes()) {
+            JPanel panel_compte = new JPanel(new BorderLayout(10, 10));
+
+            try {
+                image = ImageIO.read(new File(compte.getIdImage()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ImageIcon icon = new ImageIcon(image.getScaledInstance(150, 150, BufferedImage.SCALE_SMOOTH));
+            JLabel label_image = new JLabel(icon, JLabel.CENTER);
+            panel_compte.add(label_image, BorderLayout.NORTH);
+
+            JPanel panel_info = new JPanel(new GridLayout(0, 1, 5, 5));
+            JLabel nom_compte = new JLabel("Nom : " + compte.getNom());
+            JLabel prenom_compte = new JLabel("Prénom : " + compte.getPrenom());
+            JLabel age_compte = new JLabel("Age : " + compte.getAge());
+            JButton rencontre = new JButton("rencontre");
+            JButton matchemaiking = new JButton("matchemaiking");
+            JButton modifier = new JButton("modifier");
+
+            panel_info.add(rencontre);
+            panel_info.add(matchemaiking);
+            panel_info.add(modifier);
+            panel_info.add(nom_compte);
+            panel_info.add(prenom_compte);
+            panel_info.add(age_compte);
+            panel_compte.add(panel_info, BorderLayout.CENTER);
+
+            panel_compte.setBorder(BorderFactory.createEtchedBorder());
+            panel_comptes.add(panel_compte);
+
+            // Ajouter un ActionListener à chaque bouton
+            rencontre.addActionListener(e -> {
+                // Code à exécuter lors du clic sur le bouton "rencontre"
+                // ...
+            });
+
+            matchemaiking.addActionListener(e -> {
+                // Code à exécuter lors du clic sur le bouton "matchemaiking"
+                // ...
+            });
+
+            modifier.addActionListener(e -> {
+                // Code à exécuter lors du clic sur le bouton "modifier"
+                // ...
+            });
+        }
+
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setPreferredSize(new Dimension(1050, 500));
+
+        add(scrollPane, BorderLayout.CENTER);
+        setPreferredSize(new Dimension(500, 500));
+    }
+
+    public JButton getRencontre() {
+        return rencontre;
+    }
+
+    public JButton getMatchemaiking() {
+        return matchemaiking;
+    }
+
+    public JButton getModifier() {
+        return modifier;
+    }
+
+}
+
+
+/*
+ * import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Stack;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import project_Model.Compte;
+import project_Model.GestionCompte;
 
 public class affiche_compte extends JPanel {
 
@@ -78,19 +192,19 @@ public class affiche_compte extends JPanel {
             // Ajouter un listener à chaque bouton
             rencontre.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Bouton rencontre cliqué pour le compte : " + compte.getUser());
+                    System.out.println("Bouton rencontre cliqué pour le compte : " + compte.getId());
                 }
             });
 
             matchemaiking.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Bouton matchemaiking cliqué pour le compte : " + compte.getUser());
+                    System.out.println("Bouton matchemaiking cliqué pour le compte : " + compte.getId());
                 }
             });
 
             modifier.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Bouton modifier cliqué pour le compte : " + compte.getUser());
+                    System.out.println("Bouton modifier cliqué pour le compte : " + compte.getId());
                 }
             });
 
@@ -123,6 +237,7 @@ public class affiche_compte extends JPanel {
     }
 
 }
+*/
 
 
 /*

@@ -619,5 +619,24 @@ public class GestionCompte {
             System.out.println("Le compte n'a pas été trouvé !");
         }
     }
+    public void matchemaking(String user) {
+    	Compte compte_nom =  rechercherUser(user);
+    	for (Compte compte : this.comptes) {
+    		if (compte.getAdressepays().equals(compte_nom.getAdressepays())) {
+    			compte.setmatchmaking(compte.getmatchmaking()+5);
+    		}
+    		if (compte.getSexe().equals(compte_nom.getAttiranceSexuelle())) {
+    			compte.setmatchmaking(compte.getmatchmaking()+40);
+    		}
+    		if (compte.getHobbit().equals(compte_nom.getHobbit())) {
+    			compte.setmatchmaking(compte.getmatchmaking()+15);
+    		}
+    		if (compte_nom.getAgeMaxPref() <= compte.getAge() && compte_nom.getAgeMinPref() >= compte.getAge() ) {
+    			compte.setmatchmaking(compte.getmatchmaking()+40);
+    		}
+
+    	}
+    }
+    
 
 }
